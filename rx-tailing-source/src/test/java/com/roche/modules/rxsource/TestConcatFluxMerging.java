@@ -76,7 +76,7 @@ class ConcatSourceFlux {
 
             });
         });
-        return Flux.concat(fluxCreator, 1);
+        return Flux.concat(fluxCreator);
 
     }
 }
