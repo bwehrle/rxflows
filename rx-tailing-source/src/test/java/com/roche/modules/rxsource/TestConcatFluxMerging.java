@@ -24,59 +24,28 @@ class ConcatSourceFlux {
     Flux<Integer> longSource() {
         Flux<Flux<Integer>> fluxCreator = Flux.create(publisherFluxSink -> {
 
-            final AtomicLong requestTotal = new AtomicLong(0);
-            final Scheduler scheduler = Schedulers.newSingle("producer");
-            final Scheduler.Worker worker = scheduler.createWorker();
-            final AtomicBoolean cancelled = new AtomicBoolean(false);
-
-            worker.schedule(() -> {
-                final AtomicBoolean inProgress = new AtomicBoolean(false);
-                final AtomicInteger lastValue = new AtomicInteger();
-                final int batchSize = 10;
-
-                while (!cancelled.get()) {
-                    try {
-                        //  With prefetch  ==  1
-                        if (requestTotal.get() > 0 && inProgress.compareAndSet(false, true)) {
-                            System.out.println("Produced range starting with " + lastValue  + " requested " + requestTotal.get());
-                            // Make batchSized observable:
-                            //
-                            Flux<Integer> rangeObservable =
-                                    Flux.range(lastValue.addAndGet(1), batchSize)
-                                        .delayElements(Duration.of(10, ChronoUnit.MILLIS))
-                                        .doOnNext(x -> {
-                                            lastValue.set(x);
-                                        })
-                                        .doOnComplete(() -> {
-                                            System.out.println("Completed, allowing new range to be created");
-                                            inProgress.set(false);
-                                        });
-                            publisherFluxSink.next(rangeObservable);
-                            requestTotal.decrementAndGet();
-                        } else {
-                            Thread.sleep(10);
-                        }
-                    } catch (Exception e) {
-                        //pass through or not exceptions,  but never InterruptedException
-                        System.out.println("Exception: " + e);
-                    }
-                }
-                System.out.println("Stopping: cancelled = " + cancelled.get());
-            });
+            final AtomicInteger lastValue = new AtomicInteger();
+            final int batchSize = 10;
 
             publisherFluxSink.onCancel(() -> {
                 System.out.println("Cancel called!");
-                cancelled.set(true);
-                scheduler.dispose();
             });
 
             publisherFluxSink.onRequest(requested -> {
                 System.out.println("Requested " + requested);
-                requestTotal.addAndGet(requested);
-
+                Flux<Integer> rangeObservable =
+                        Flux.range(lastValue.addAndGet(1), batchSize)
+                            .delayElements(Duration.of(10, ChronoUnit.MILLIS))
+                            .doOnNext(x -> {
+                                lastValue.set(x);
+                            })
+                            .doOnComplete(() -> {
+                                System.out.println("Completed, allowing new range to be created");
+                            });
+                publisherFluxSink.next(rangeObservable);
             });
         });
-        return Flux.concat(fluxCreator);
+        return Flux.concat(fluxCreator, 1);
 
     }
 }

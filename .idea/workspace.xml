@@ -87,12 +87,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1207" />
+          <entry key="java" value="1226" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1207" />
+          <entry key="JAVA" value="1226" />
         </counts>
       </usages-collector>
     </session>
@@ -135,8 +135,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rx-tailing-source/src/test/java/com/roche/modules/rxsource/TestConcatFluxMerging.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+            <state relative-caret-position="180">
+              <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -465,7 +465,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551634358094" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551634564067" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -618,9 +618,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestConcatFluxMerging_consume200Events - 2019.03.03 at 10h 02m 05s.xml">
-      <configuration name="TestConcatFluxMerging.consume200Events" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestConcatFluxMerging_consume200Events - 2019.03.03 at 10h 02m 30s.xml">
       <configuration name="TestConcatFluxMerging.consume200Events" configurationId="JUnit" />
     </history-entry>
@@ -648,6 +645,9 @@
     <history-entry file="TestConcatFluxMerging_consume200Events - 2019.03.03 at 18h 24m 32s.xml">
       <configuration name="TestConcatFluxMerging.consume200Events" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestConcatFluxMerging_consume200Events - 2019.03.03 at 18h 35m 39s.xml">
+      <configuration name="TestConcatFluxMerging.consume200Events" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -671,7 +671,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.328084" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38845146" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4120735" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3987261" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1012,8 +1012,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rx-tailing-source/src/test/java/com/roche/modules/rxsource/TestConcatFluxMerging.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+        <state relative-caret-position="180">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
         </state>
       </provider>
     </entry>
